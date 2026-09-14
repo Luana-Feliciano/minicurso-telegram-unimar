@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #eef2f6;
+  font-family: system-ui, sans-serif;
+  color: #16202a;
+}
+
+.cartao {
+  width: min(440px, 92vw);
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+h1 { margin: 0 0 18px; font-size: 1.5rem; }
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd6e0;
+  border-radius: 8px;
+  font: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #1f7fc4;
+  border-color: transparent;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #1f7fc4;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled { opacity: .6; cursor: progress; }
+
+.retorno { margin: 16px 0 0; font-size: .92rem; min-height: 1.2em; }
+.retorno.sucesso { color: #21734e; }
+.retorno.erro    { color: #b23b30; }
+
+/* campo do honeypot: fora da tela, mas nunca display:none — robô ignora o que está escondido demais */
+.escondido { position: absolute; left: -9999px; }
