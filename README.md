@@ -127,6 +127,36 @@ Abra `http://localhost/contato/`, preencha e envie.
 
 ---
 
+## Rodando com Docker (alternativa ao XAMPP)
+
+Se você tem **Docker** instalado, não precisa do XAMPP nem de criar o banco na mão.
+
+1. Copie o `.env.exemplo` para `.env` e preencha o seu `BOT_TOKEN` e `CHAT_ID`
+   (passos 4 e 5 acima)
+2. Na pasta do projeto, rode:
+
+```
+docker compose up -d --build
+```
+
+3. Abra:
+   - `http://localhost:8080` — o formulário
+   - `http://localhost:8081` — o phpMyAdmin, já logado
+
+O banco `minicurso` e a tabela `contatos` são criados sozinhos na primeira subida, a
+partir do `schema.sql`. Dentro do Docker o `config.php` é o de `docker/config.php`, que
+lê os valores do `.env` — o seu `config.php` do XAMPP não é usado.
+
+| Comando | O que faz |
+|---|---|
+| `docker compose logs -f app` | Mostra os erros do PHP/Apache |
+| `docker compose down` | Desliga tudo (os contatos continuam salvos) |
+| `docker compose down -v` | Desliga e **apaga o banco** — o `schema.sql` roda de novo na próxima subida |
+
+> Mudou o `.env`? Rode `docker compose up -d` de novo para o PHP enxergar os valores novos.
+
+---
+
 ## O que cada arquivo faz
 
 | Arquivo | Papel |
