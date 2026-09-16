@@ -9,9 +9,9 @@ $(document).ready(function () {
     retorno.removeClass("sucesso erro").text("");
 
     // --- validação no navegador ---
-    var nome = $.trim($("#nome").val());
-    var email = $.trim($("#email").val());
-    var mensagem = $.trim($("#mensagem").val());
+    var nome = $("#nome").val().trim();
+    var email = $("#email").val().trim();
+    var mensagem = $("#mensagem").val().trim();
 
     if (nome === "" || email === "" || mensagem === "") {
       retorno.addClass("erro").text("Preencha todos os campos.");
